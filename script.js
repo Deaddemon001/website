@@ -35,7 +35,7 @@ const observer = new IntersectionObserver((entries) => {
   entries.forEach((entry, i) => {
     if (entry.isIntersecting) {
       // Stagger children if parent is a grid
-      const children = entry.target.querySelectorAll('.plan-card, .service-card, .shop-item, .why-card, .coverage-item');
+      const children = entry.target.querySelectorAll('.plan-card, .service-card, .shop-item, .why-card, .coverage-item, .outsourcing-card');
       if (children.length > 0) {
         children.forEach((child, idx) => {
           setTimeout(() => {
@@ -56,6 +56,10 @@ const animatableSelectors = [
   '.section-header',
   '.plans-grid',
   '.services-grid',
+  '.outsourcing-grid',
+  '.outsourcing-card',
+  '.outsourcing-benefits-bar',
+  '.outsourcing-cta-banner',
   '.coverage-layout',
   '.shop-grid',
   '.shop-cta-banner',
@@ -92,6 +96,8 @@ const AREA_NAMES = {
 };
 
 const SERVICE_NAMES = {
+  'data-entry': 'Data Entry & BPO Outsourcing',
+  'image-editing': 'Image Editing & Retouching',
   networking: 'Network / ISP Support',
   cctv: 'CCTV Installation',
   fiber: 'Fiber Optic Splicing',

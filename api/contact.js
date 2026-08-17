@@ -42,6 +42,8 @@ module.exports = async function handler(req, res) {
   };
 
   const serviceMap = {
+    'data-entry': 'Data Entry & BPO Outsourcing',
+    'image-editing': 'Image Editing & Retouching',
     networking: 'Network / ISP Support',
     cctv: 'CCTV Installation',
     fiber: 'Fiber Optic Splicing',

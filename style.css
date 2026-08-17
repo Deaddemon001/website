@@ -1502,6 +1502,7 @@ a { text-decoration: none; color: inherit; }
   .nav-links.open .nav-link:nth-child(3) { animation-delay: .26s; }
   .nav-links.open .nav-link:nth-child(4) { animation-delay: .32s; }
   .nav-links.open .nav-link:nth-child(5) { animation-delay: .38s; }
+  .nav-links.open .nav-link:nth-child(6) { animation-delay: .44s; }
   .nav-links.open .nav-link:hover {
     background: rgba(255,255,255,.10);
     color: #fff;
@@ -1527,6 +1528,196 @@ a { text-decoration: none; color: inherit; }
   .footer-container { grid-template-columns: 1fr 1fr; }
   .footer-bottom-inner { flex-direction: column; gap: 6px; text-align: center; }
 }
+/* ===== OUTSOURCING & DATA SERVICES ===== */
+.outsourcing-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.outsourcing-card {
+  background: var(--white);
+  border: 1.5px solid var(--slate-200);
+  border-radius: var(--radius-lg);
+  padding: 30px 26px;
+  display: flex;
+  flex-direction: column;
+  transition: all var(--transition);
+  position: relative;
+}
+.outsourcing-card:hover {
+  border-color: var(--blue-200);
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-5px);
+}
+.outsourcing-card-highlight {
+  border-color: var(--cyan-400);
+  background: linear-gradient(170deg, #ffffff 60%, #f0fdfa 100%);
+  box-shadow: 0 4px 20px rgba(6, 182, 212, 0.08);
+}
+.outsourcing-card-highlight:hover {
+  border-color: var(--cyan-500);
+  box-shadow: 0 12px 36px rgba(6, 182, 212, 0.18);
+}
+.outsourcing-card-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+.outsourcing-icon-wrap {
+  width: 56px;
+  height: 56px;
+  border-radius: var(--radius);
+  background: var(--blue-50);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.outsourcing-icon-wrap svg {
+  width: 32px;
+  height: 32px;
+}
+.outsourcing-icon-wrap.icon-cyan {
+  background: #ecfeff;
+}
+.outsourcing-badge {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--brand);
+  background: var(--blue-50);
+  border: 1px solid var(--blue-100);
+  padding: 4px 10px;
+  border-radius: 50px;
+  letter-spacing: 0.02em;
+}
+.outsourcing-badge.badge-featured {
+  color: #0891b2;
+  background: #ecfeff;
+  border-color: #a5f3fc;
+}
+.outsourcing-card-body {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+.outsourcing-title {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 1.18rem;
+  font-weight: 700;
+  color: var(--slate-900);
+  margin-bottom: 10px;
+}
+.outsourcing-desc {
+  font-size: 0.88rem;
+  color: var(--slate-600);
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+.outsourcing-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  margin-bottom: 20px;
+  flex-grow: 1;
+}
+.outsourcing-list li {
+  font-size: 0.82rem;
+  color: var(--slate-700);
+  padding-left: 20px;
+  position: relative;
+  line-height: 1.45;
+}
+.outsourcing-list li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--brand);
+  font-weight: 700;
+  font-size: 0.85rem;
+}
+.outsourcing-card-highlight .outsourcing-list li::before {
+  color: var(--cyan-500);
+}
+.outsourcing-benefits-bar {
+  margin-top: 36px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  background: var(--slate-50);
+  border: 1.5px solid var(--slate-200);
+  border-radius: var(--radius-lg);
+  padding: 28px 24px;
+}
+.benefit-item {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+}
+.benefit-icon {
+  font-size: 1.6rem;
+  flex-shrink: 0;
+  line-height: 1;
+}
+.benefit-info h4 {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--slate-900);
+  margin-bottom: 4px;
+}
+.benefit-info p {
+  font-size: 0.8rem;
+  color: var(--slate-500);
+  line-height: 1.5;
+}
+.outsourcing-cta-banner {
+  margin-top: 32px;
+  background: linear-gradient(135deg, var(--slate-900) 0%, #1e293b 60%, var(--brand-dark) 100%);
+  border-radius: var(--radius-xl);
+  padding: 36px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  box-shadow: var(--shadow-xl);
+  border: 1px solid rgba(255,255,255,.08);
+}
+.outsourcing-cta-banner h3 {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 6px;
+}
+.outsourcing-cta-banner p {
+  font-size: 0.9rem;
+  color: rgba(255,255,255,.75);
+  max-width: 480px;
+  line-height: 1.6;
+}
+.outsourcing-cta-banner .btn-primary {
+  background: linear-gradient(135deg, var(--accent) 0%, var(--brand) 100%);
+  color: #fff;
+  flex-shrink: 0;
+  box-shadow: 0 4px 20px rgba(6, 182, 212, 0.4);
+}
+.outsourcing-cta-banner .btn-primary:hover {
+  filter: brightness(1.1);
+  transform: translateY(-2px);
+}
+
+@media (max-width: 1024px) {
+  .outsourcing-grid { grid-template-columns: repeat(2, 1fr); }
+  .outsourcing-benefits-bar { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+}
+@media (max-width: 768px) {
+  .outsourcing-grid { grid-template-columns: 1fr; }
+  .outsourcing-benefits-bar { grid-template-columns: 1fr; }
+  .outsourcing-cta-banner { flex-direction: column; text-align: center; padding: 30px 24px; }
+}
+
 @media (max-width: 480px) {
   .section { padding: 64px 0; }
   .hero-stats { gap: 14px; }
@@ -1536,3 +1727,4 @@ a { text-decoration: none; color: inherit; }
   .contact-form { padding: 24px 18px; }
   .shop-cta-banner { padding: 28px 22px; }
 }
+
