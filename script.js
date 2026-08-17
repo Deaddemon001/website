@@ -67,72 +67,145 @@ const animatableSelectors = [
   '.why-card',
   '.coverage-item',
   '.contact-card',
+  '.software-feature-card',
+  '.software-product-featured',
+  '.software-products-header',
 ];
 document.querySelectorAll(animatableSelectors.join(',')).forEach(el => {
   el.classList.add('fade-in');
   observer.observe(el);
 });
 
-// ===== CONTACT FORM =====
-// Configure your Google Form here (see README in the comment below):
-const GF_CONFIG = {
-  // Full formResponse URL, e.g. "https://docs.google.com/forms/d/e/XXXXX/formResponse"
-  url: "https://docs.google.com/forms/d/e/YOUR_FORM_ID/formResponse",
-  // entry IDs for each field, in this order: name, phone, area, service, message
-  entries: {
-    name: "entry.123456789",
-    phone: "entry.123456790",
-    area: "entry.123456791",
-    service: "entry.123456792",
-    message: "entry.123456793",
-  },
+// ===== CONTACT FORM (DISCORD NOTIFICATION) =====
+// You can paste your Discord Webhook URL below:
+const DISCORD_CONFIG = {
+  webhookUrl: "YOUR_DISCORD_WEBHOOK_URL_HERE", // e.g. "https://discord.com/api/webhooks/..."
+  botName: "Smartgem Website Lead",
 };
 
-function handleFormSubmit(e) {
+const AREA_NAMES = {
+  mettur: 'Mettur Dam',
+  mecheri: 'Mecheri',
+  jalakandapuram: 'Jalakandapuram',
+  muniyampatti: 'Muniyampatti',
+  other: 'Other'
+};
+
+const SERVICE_NAMES = {
+  networking: 'Network / ISP Support',
+  cctv: 'CCTV Installation',
+  fiber: 'Fiber Optic Splicing',
+  software: 'Software / Website / App',
+  internet: 'Internet Connection',
+  hardware: 'Hardware Purchase',
+  other: 'Other'
+};
+
+async function handleFormSubmit(e) {
   e.preventDefault();
-  const btn  = document.getElementById('form-submit-btn');
+  const btn = document.getElementById('form-submit-btn');
   const succ = document.getElementById('form-success');
+  const errBox = document.getElementById('form-error');
+
+  if (errBox) errBox.style.display = 'none';
+  if (succ) succ.style.display = 'none';
 
   const form = e.target;
-  const body = new URLSearchParams();
-  body.append(GF_CONFIG.entries.name, form.querySelector('#form-name').value);
-  body.append(GF_CONFIG.entries.phone, form.querySelector('#form-phone').value);
-  body.append(GF_CONFIG.entries.area, form.querySelector('#form-area').value);
-  body.append(GF_CONFIG.entries.service, form.querySelector('#form-service').value);
-  body.append(GF_CONFIG.entries.message, form.querySelector('#form-message').value);
-  // Google Forms required hidden fields
-  body.append('fvv', '1');
-  body.append('draftResponse', '[]');
-  body.append('pageHistory', '0');
-  body.append('fbzx', '-1');
+  const name = form.querySelector('#form-name').value.trim();
+  const phone = form.querySelector('#form-phone').value.trim();
+  const areaKey = form.querySelector('#form-area').value;
+  const serviceKey = form.querySelector('#form-service').value;
+  const message = form.querySelector('#form-message').value.trim();
+
+  const areaName = AREA_NAMES[areaKey] || areaKey || 'Not specified';
+  const serviceName = SERVICE_NAMES[serviceKey] || serviceKey || 'Not specified';
 
   btn.disabled = true;
-  btn.textContent = 'Sending...';
+  btn.textContent = 'Sending to Smartgem...';
 
-  fetch(GF_CONFIG.url, {
-    method: 'POST',
-    mode: 'no-cors',
-    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-    body: body.toString(),
-  })
-    .then(() => {
-      succ.style.display = 'block';
-      btn.textContent = 'Message Sent ✓';
-      btn.style.background = 'linear-gradient(135deg,#16a34a,#15803d)';
-      form.reset();
-    })
-    .catch(() => {
-      btn.disabled = false;
-      btn.textContent = 'Send Message';
-      alert('Something went wrong. Please try again or message us on WhatsApp.');
+  let sentSuccessfully = false;
+
+  // 1. Try sending via /api/contact (Vercel Serverless Function)
+  try {
+    const apiRes = await fetch('/api/contact', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        name,
+        phone,
+        area: areaKey,
+        service: serviceKey,
+        message
+      })
     });
 
-  setTimeout(() => {
-    succ.style.display = 'none';
+    if (apiRes.ok) {
+      sentSuccessfully = true;
+    }
+  } catch (err) {
+    // Local / static hosting fallback
+  }
+
+  // 2. If /api/contact didn't succeed, try direct client-side Discord Webhook
+  if (!sentSuccessfully && DISCORD_CONFIG.webhookUrl && !DISCORD_CONFIG.webhookUrl.includes('YOUR_DISCORD_WEBHOOK_URL')) {
+    try {
+      const discordPayload = {
+        username: DISCORD_CONFIG.botName,
+        embeds: [
+          {
+            title: '📩 New Customer Inquiry from Website!',
+            color: 1994751, // #1e6fff
+            fields: [
+              { name: '👤 Full Name', value: name || 'N/A', inline: true },
+              { name: '📞 Phone Number', value: phone ? `[${phone}](tel:${phone})` : 'N/A', inline: true },
+              { name: '📍 Service Area', value: areaName, inline: true },
+              { name: '🛠️ Service Interested', value: serviceName, inline: true },
+              { name: '💬 Message / Requirement', value: message || '*(No message provided)*', inline: false }
+            ],
+            footer: { text: 'Smartgem Technologies Website Inquiry' },
+            timestamp: new Date().toISOString()
+          }
+        ]
+      };
+
+      const dcRes = await fetch(DISCORD_CONFIG.webhookUrl, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(discordPayload)
+      });
+
+      if (dcRes.ok) {
+        sentSuccessfully = true;
+      }
+    } catch (dcErr) {
+      console.error('Discord submission error:', dcErr);
+    }
+  }
+
+  if (sentSuccessfully) {
+    if (succ) succ.style.display = 'block';
+    btn.textContent = 'Message Sent ✓';
+    btn.style.background = 'linear-gradient(135deg,#16a34a,#15803d)';
+    form.reset();
+  } else {
     btn.disabled = false;
     btn.innerHTML = 'Send Message <svg class="btn-icon" viewBox="0 0 20 20" fill="currentColor"><path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z"/></svg>';
-    btn.style.background = '';
-  }, 4000);
+    
+    if (errBox) {
+      errBox.style.display = 'block';
+      const waText = encodeURIComponent(`Hi Smartgem, my name is ${name}.\nPhone: ${phone}\nArea: ${areaName}\nService: ${serviceName}\nMessage: ${message}`);
+      errBox.innerHTML = `⚠️ Discord webhook URL is not configured yet. <br/><a href="https://wa.me/918300474741?text=${waText}" target="_blank" class="err-wa-btn">📲 Click to send directly on WhatsApp →</a>`;
+    }
+  }
+
+  setTimeout(() => {
+    if (sentSuccessfully) {
+      if (succ) succ.style.display = 'none';
+      btn.disabled = false;
+      btn.innerHTML = 'Send Message <svg class="btn-icon" viewBox="0 0 20 20" fill="currentColor"><path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z"/></svg>';
+      btn.style.background = '';
+    }
+  }, 5000);
 }
 
 // ===== SMOOTH ACTIVE NAV HIGHLIGHT =====
