@@ -644,6 +644,13 @@ a { text-decoration: none; color: inherit; }
   width: 32px;
   height: 32px;
 }
+.sw-icon-wrap img,
+.sw-icon-img {
+  width: 34px;
+  height: 34px;
+  object-fit: contain;
+  display: block;
+}
 .sw-head {
   display: flex;
   align-items: center;
@@ -737,6 +744,13 @@ a { text-decoration: none; color: inherit; }
   border: 1px solid #d1fae5;
 }
 .spf-icon svg { width: 36px; height: 36px; }
+.spf-icon img,
+.spf-icon-img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  display: block;
+}
 .spf-content { flex: 1; }
 .spf-badge-row {
   display: flex;
