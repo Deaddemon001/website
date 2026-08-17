@@ -1,4 +1,17 @@
-export default async function handler(req, res) {
+module.exports = async function handler(req, res) {
+  // CORS headers
+  res.setHeader('Access-Control-Allow-Credentials', 'true');
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET,OPTIONS,PATCH,DELETE,POST,PUT');
+  res.setHeader(
+    'Access-Control-Allow-Headers',
+    'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version'
+  );
+
+  if (req.method === 'OPTIONS') {
+    return res.status(200).end();
+  }
+
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' });
   }
@@ -6,10 +19,19 @@ export default async function handler(req, res) {
   const webhookUrl = process.env.DISCORD_WEBHOOK_URL;
 
   if (!webhookUrl) {
-    return res.status(400).json({ error: 'DISCORD_WEBHOOK_URL environment variable is not configured' });
+    return res.status(400).json({ error: 'DISCORD_WEBHOOK_URL environment variable is not configured on Vercel' });
   }
 
-  const { name, phone, area, service, message } = req.body || {};
+  let body = req.body;
+  if (typeof body === 'string') {
+    try {
+      body = JSON.parse(body);
+    } catch (e) {
+      body = {};
+    }
+  }
+
+  const { name, phone, area, service, message } = body || {};
 
   const areaMap = {
     mettur: 'Mettur Dam',
@@ -39,11 +61,11 @@ export default async function handler(req, res) {
         title: '📩 New Customer Inquiry from Website!',
         color: 1994751, // #1e6fff
         fields: [
-          { name: '👤 Full Name', value: name || 'N/A', inline: true },
+          { name: '👤 Full Name', value: String(name || 'N/A'), inline: true },
           { name: '📞 Phone Number', value: phone ? `[${phone}](tel:${phone})` : 'N/A', inline: true },
-          { name: '📍 Service Area', value: formattedArea, inline: true },
-          { name: '🛠️ Service Interested', value: formattedService, inline: true },
-          { name: '💬 Message / Requirement', value: message || '*(No message provided)*', inline: false }
+          { name: '📍 Service Area', value: String(formattedArea), inline: true },
+          { name: '🛠️ Service Interested', value: String(formattedService), inline: true },
+          { name: '💬 Message / Requirement', value: String(message || '*(No message provided)*'), inline: false }
         ],
         footer: { text: 'Smartgem Technologies Notification System' },
         timestamp: new Date().toISOString()
@@ -67,4 +89,4 @@ export default async function handler(req, res) {
   } catch (err) {
     return res.status(500).json({ error: err.message });
   }
-}
+};
