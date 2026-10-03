@@ -214,37 +214,45 @@
       </ul>
       <p>We do <strong>not</strong> receive, store, or have access to your Google account credentials or to the backup files you upload to your own Drive.</p>
 
-      <h2>4. What we do NOT do</h2>
+      <h2>4. Advertising (Google AdMob)</h2>
+      <p>The App displays advertisements using <strong>Google AdMob</strong> (Google Mobile Ads SDK) to support development and maintenance.</p>
       <ul>
-        <li><strong>No analytics or tracking.</strong> We do not use analytics SDKs, crash-reporting that profiles you, or track how you use the App.</li>
-        <li><strong>No advertising.</strong> The App does not show or serve ads.</li>
-        <li><strong>No selling or sharing.</strong> We never sell, rent, or share your personal information or your billing data with third parties.</li>
-        <li><strong>No internet use for daily operation.</strong> The App works fully offline; an internet connection is used only if you choose to upload a backup to Google Drive.</li>
+        <li><strong>Data processed by AdMob:</strong> Google AdMob may collect and process device identifiers (such as Android Advertising ID), IP addresses, and diagnostic/interaction data for serving non-personalized or personalized ads and fraud prevention.</li>
+        <li><strong>Privacy Policy:</strong> The collection and processing of advertising data are governed by Google's Privacy Policy at <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">https://policies.google.com/privacy</a> and <a href="https://policies.google.com/technologies/ads" target="_blank" rel="noopener noreferrer">https://policies.google.com/technologies/ads</a>.</li>
+        <li><strong>Your Billing Data is Never Shared:</strong> Your customer lists, payment transactions, and cable operator business records stored locally in the App are <strong>never</strong> shared with or accessed by Google AdMob or any third-party advertisers.</li>
       </ul>
 
-      <h2>5. Permissions the App uses</h2>
+      <h2>5. What we do NOT do</h2>
+      <ul>
+        <li><strong>No proprietary user tracking.</strong> We do not run custom tracking servers, user profiling databases, or third-party analytics SDKs.</li>
+        <li><strong>No selling or sharing of billing records.</strong> We never sell, rent, or share your subscriber data or financial records with third parties.</li>
+        <li><strong>No cloud storage of your data.</strong> Except for your explicit optional backups uploaded directly to your personal Google Drive, all billing data resides 100% locally on your device.</li>
+      </ul>
+
+      <h2>6. Permissions the App uses</h2>
       <table>
         <thead>
           <tr><th>Permission</th><th>Purpose</th></tr>
         </thead>
         <tbody>
-          <tr><td>Internet</td><td>Only to upload a backup to Google Drive when you initiate it.</td></tr>
-          <tr><td>Storage (legacy, Android 8–9 only)</td><td>To save exported CSV files to your Downloads folder.</td></tr>
+          <tr><td><code>INTERNET</code></td><td>To load advertisements via Google AdMob and upload backups to your Google Drive when initiated.</td></tr>
+          <tr><td><code>ACCESS_NETWORK_STATE</code></td><td>To check network availability before requesting ads or uploading Drive backups.</td></tr>
+          <tr><td><code>WRITE_EXTERNAL_STORAGE</code> (legacy, Android 8–9 only)</td><td>To save exported CSV files to your Downloads folder.</td></tr>
           <tr><td>Sign-in with Google (Play Services)</td><td>To let you choose a Google account for the optional Drive backup.</td></tr>
         </tbody>
       </table>
 
-      <h2>6. Security</h2>
+      <h2>7. Security</h2>
       <ul>
         <li>Passwords and security-question answers are hashed using SHA-256 with a unique per-user salt before storage. We recommend using a strong password and keeping your device locked.</li>
         <li>The App runs a login session to protect access to your billing records.</li>
         <li>As with any local app, the safety of your data also depends on the security of your device (lock screen, updates, and so on).</li>
       </ul>
 
-      <h2>7. Children's privacy</h2>
+      <h2>8. Children's privacy</h2>
       <p>The App is not directed to children under the age of 13 (or the applicable minimum age in your jurisdiction), and we do not knowingly collect personal information from children.</p>
 
-      <h2>8. Your choices and rights</h2>
+      <h2>9. Your choices and rights</h2>
       <ul>
         <li><strong>Backup and export:</strong> You can export a JSON backup and CSV reports at any time from the App's Settings.</li>
         <li><strong>Restore:</strong> You can restore from a previous backup (this replaces the current on-device data).</li>
@@ -253,10 +261,10 @@
       </ul>
       <p>Where applicable under data protection law, you have the right to access, correct, and delete the personal information you have stored in the App.</p>
 
-      <h2>9. Changes to this policy</h2>
+      <h2>10. Changes to this policy</h2>
       <p>We may update this Privacy Policy from time to time. When we do, we will update the "Last updated" date above. Continued use of the App after changes means you accept the updated policy.</p>
 
-      <h2>10. Contact us</h2>
+      <h2>11. Contact us</h2>
       <p>If you have questions or concerns about this Privacy Policy or how the App handles data, contact us at:</p>
       <div class="legal-contact">
         <h3>Smartgem Technologies</h3>
