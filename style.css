@@ -849,10 +849,85 @@ a { text-decoration: none; color: inherit; }
   transform: translateY(-2px);
   box-shadow: 0 8px 24px rgba(15, 23, 42, 0.35);
 }
+.btn-playstore {
+  background: #0f172a;
+  color: #fff;
+  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.22);
+  border: 1.5px solid #1e293b;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.btn-playstore:hover {
+  background: #1e293b;
+  color: #fff;
+  border-color: #38bdf8;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.35);
+}
+.software-product-stech {
+  background: linear-gradient(135deg, #ffffff 40%, #eff6ff 80%, #f0fdf4 100%);
+  border-color: #bfdbfe;
+}
+.software-product-stech:hover {
+  border-color: #3b82f6;
+}
+.software-product-expense {
+  background: linear-gradient(135deg, #ffffff 40%, #f0fdfa 75%, #f0fdf4 100%);
+  border-color: #99f6e4;
+}
+.software-product-expense:hover {
+  border-color: #14b8a6;
+}
+.stech-icon {
+  background: #eff6ff;
+  border: 1px solid #dbeafe;
+}
+.expense-icon {
+  background: #f0fdfa;
+  border: 1px solid #ccfbf1;
+}
+.spf-badge-live {
+  color: #15803d;
+  background: #dcfce7;
+  border-color: #86efac;
+}
+.badge-live {
+  background: #dcfce7;
+  color: #15803d;
+  border-color: #86efac;
+}
+.spf-badge-expense {
+  color: #0f766e;
+  background: #ccfbf1;
+  border-color: #99f6e4;
+}
+.spf-legal-links {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.84rem;
+}
+.spf-legal-divider {
+  color: var(--slate-300);
+}
+.spf-legal-link {
+  color: var(--slate-600);
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color var(--transition);
+}
+.spf-legal-link:hover {
+  color: var(--brand);
+}
 .spf-actions {
   display: flex;
   align-items: center;
-  gap: 18px;
+  gap: 16px;
   flex-wrap: wrap;
   margin-top: 18px;
 }
@@ -1375,8 +1450,8 @@ a { text-decoration: none; color: inherit; }
 .footer { background: var(--slate-900); padding: 72px 0 0; }
 .footer-container {
   display: grid;
-  grid-template-columns: 1.8fr 1fr 1fr 1fr;
-  gap: 48px;
+  grid-template-columns: 1.5fr 1fr 1.05fr 1.05fr 0.9fr;
+  gap: 36px;
   padding-bottom: 56px;
 }
 .footer-brand { }
