@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-7BC42029JB"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-7BC42029JB');
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy — Smart Expense &amp; Income Tracker | Smartgem Technologies</title>
+  <meta name="description" content="Privacy Policy for the Smart Expense & Income Tracker Android app by Smartgem Technologies. 100% offline architecture — your financial data never leaves your device." />
+  <link rel="icon" type="image/png" href="tab-logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* ===== LEGAL PAGE SPECIFIC ===== */
+    .legal-navbar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(255,255,255,.9);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--slate-200);
+    }
+    .legal-navbar .nav-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+    }
+    .legal-navbar .logo-img { height: 38px; width: auto; }
+    .legal-navbar .nav-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--slate-600);
+      font-weight: 600;
+      font-size: 0.9rem;
+      padding: 8px 14px;
+      border-radius: var(--radius-sm);
+      transition: all var(--transition);
+    }
+    .legal-navbar .nav-link:hover { color: var(--brand); background: var(--blue-50); }
+
+    .legal-hero {
+      background: linear-gradient(135deg, #004d40, #00695c, #1a237e);
+      color: var(--white);
+      padding: 56px 0 44px;
+    }
+    .legal-hero .badge {
+      display: inline-block;
+      background: rgba(255,255,255,.12);
+      border: 1px solid rgba(255,255,255,.18);
+      color: #80cbc4;
+      font-weight: 600;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      padding: 6px 14px;
+      border-radius: 999px;
+      margin-bottom: 16px;
+    }
+    .legal-hero h1 { font-size: 2.4rem; font-weight: 800; margin-bottom: 10px; line-height: 1.2; }
+    .legal-hero p { color: #b2dfdb; max-width: 720px; }
+
+    .legal-container {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 48px 24px 72px;
+    }
+    .legal-card {
+      background: var(--white);
+      border: 1px solid var(--slate-200);
+      border-radius: 16px;
+      padding: 36px 40px;
+      margin-bottom: 24px;
+      box-shadow: 0 2px 12px rgba(0,0,0,.06);
+    }
+    .legal-card h2 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--slate-800);
+      margin-bottom: 14px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid #e0f2f1;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .legal-card h2 .icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      background: linear-gradient(135deg, #00897b, #00695c);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+    .legal-card p, .legal-card li {
+      color: var(--slate-600);
+      line-height: 1.75;
+      font-size: 0.97rem;
+    }
+    .legal-card ul {
+      padding-left: 20px;
+      margin-top: 10px;
+    }
+    .legal-card li { margin-bottom: 8px; }
+    .legal-card a { color: #00897b; font-weight: 500; }
+    .legal-card a:hover { text-decoration: underline; }
+
+    .perms-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 12px;
+      font-size: 0.93rem;
+    }
+    .perms-table th {
+      text-align: left;
+      padding: 10px 14px;
+      background: #e0f2f1;
+      color: #004d40;
+      font-weight: 700;
+    }
+    .perms-table td {
+      padding: 10px 14px;
+      border-bottom: 1px solid var(--slate-100);
+      color: var(--slate-600);
+      vertical-align: top;
+    }
+    .perms-table tr:last-child td { border-bottom: none; }
+    .perms-table code {
+      background: #f0fafa;
+      padding: 2px 7px;
+      border-radius: 5px;
+      font-size: 0.85rem;
+      color: #00695c;
+      font-family: monospace;
+    }
+
+    .highlight-box {
+      background: linear-gradient(135deg, #e0f2f1, #e8f5e9);
+      border-left: 4px solid #00897b;
+      border-radius: 10px;
+      padding: 16px 20px;
+      margin: 16px 0;
+    }
+    .highlight-box strong { color: #004d40; }
+    .highlight-box p { color: #00695c; margin: 0; }
+
+    .legal-meta {
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+      margin-bottom: 28px;
+    }
+    .legal-meta-item {
+      background: #f0fafa;
+      border: 1px solid #b2dfdb;
+      border-radius: 10px;
+      padding: 10px 18px;
+      font-size: 0.88rem;
+      color: #00695c;
+      font-weight: 500;
+    }
+    .legal-meta-item strong { color: #004d40; display: block; font-size: 0.75rem; text-transform: uppercase; letter-spacing: .05em; }
+
+    .legal-contact {
+      background: linear-gradient(135deg, #004d40, #00695c);
+      border-radius: 14px;
+      padding: 24px 28px;
+      color: white;
+      margin-top: 8px;
+    }
+    .legal-contact h3 { color: white; font-size: 1.1rem; margin-bottom: 8px; }
+    .legal-contact p { color: #b2dfdb; margin: 4px 0; }
+    .legal-contact a { color: #80cbc4; }
+
+    @media (max-width: 600px) {
+      .legal-card { padding: 22px 18px; }
+      .legal-hero h1 { font-size: 1.7rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== NAVBAR ===== -->
+  <nav class="legal-navbar">
+    <div class="container nav-container">
+      <a href="/" class="logo">
+        <img src="logo.png" alt="Smartgem Technologies" class="logo-img" />
+      </a>
+      <a href="/" class="nav-link">
+        ← Back to Home
+      </a>
+    </div>
+  </nav>
+
+  <!-- ===== HERO ===== -->
+  <section class="legal-hero">
+    <div class="container">
+      <div class="badge">📄 Legal Document</div>
+      <h1>Privacy Policy</h1>
+      <p>Smart Expense &amp; Income Tracker — Android App by Smartgem Technologies</p>
+    </div>
+  </section>
+
+  <!-- ===== CONTENT ===== -->
+  <main>
+    <div class="legal-container">
+
+      <!-- Meta -->
+      <div class="legal-meta">
+        <div class="legal-meta-item"><strong>Last Updated</strong>October 18, 2026</div>
+        <div class="legal-meta-item"><strong>Effective Date</strong>October 2026</div>
+        <div class="legal-meta-item"><strong>Package ID</strong>com.smartcalc.expense</div>
+        <div class="legal-meta-item"><strong>Platform</strong>Android 7.0+</div>
+      </div>
+
+      <!-- Section 1 -->
+      <div class="legal-card">
+        <h2><span class="icon">🛡️</span> 1. Introduction &amp; Core Philosophy</h2>
+        <p>Welcome to <strong>Smart Expense &amp; Income Tracker</strong> ("we", "our", or "the App"), developed by <strong>Smartgem Technologies</strong>. We believe your personal financial records belong strictly to you.</p>
+        <div class="highlight-box">
+          <p><strong>Privacy-First, 100% Offline Architecture:</strong> We do not operate remote databases or user telemetry clouds that ingest your income, expenses, accounts, budgets, or balances. Your financial data is stored exclusively on your own device — never on our servers.</p>
+        </div>
+        <p>This Privacy Policy explains how our App handles your information, what data stays local, and what minimal data third-party services (AdMob, Google Drive) may process on your behalf.</p>
+      </div>
+
+      <!-- Section 2 -->
+      <div class="legal-card">
+        <h2><span class="icon">🚫</span> 2. Information We Do NOT Collect</h2>
+        <ul>
+          <li><strong>No Financial Data Transmission:</strong> We do not collect, transmit, sell, or rent your transaction titles, income amounts, expense figures, account names, category allocations, budget limits, or notes.</li>
+          <li><strong>No User Accounts:</strong> You do not need to register, create an account, or link social logins to use the App. There is no sign-up form, no email required.</li>
+          <li><strong>No Banking Credentials:</strong> The App does not connect to Open Banking APIs, Plaid, or any financial aggregator service. All inputs are entered locally by you.</li>
+          <li><strong>No Crash Analytics or User Telemetry:</strong> We do not embed third-party crash reporting SDKs (such as Firebase Crashlytics) that upload device diagnostics to external servers.</li>
+        </ul>
+      </div>
+
+      <!-- Section 3 -->
+      <div class="legal-card">
+        <h2><span class="icon">📱</span> 3. Data Stored Locally On Your Device</h2>
+        <p>All information created while using the App is saved strictly in local application sandboxes on your device:</p>
+        <ul>
+          <li><strong>Transactions &amp; Categories:</strong> Stored locally in an SQLite Room Database at <code>/data/data/com.smartcalc.expense/databases/expense_database</code>. This path is only accessible by the App and protected by Android's application sandbox.</li>
+          <li><strong>Budgets &amp; Subscriptions:</strong> Stored locally on device in the same Room database.</li>
+          <li><strong>Preferences:</strong> Display currency, terms consent status, biometric lock preference, and notification settings are saved in local Android <code>SharedPreferences</code> — not transmitted anywhere.</li>
+        </ul>
+        <div class="highlight-box">
+          <p><strong>No internet connection is required</strong> to record transactions, view analytics, manage budgets, or export data. The App is fully functional offline.</p>
+        </div>
+      </div>
+
+      <!-- Section 4 -->
+      <div class="legal-card">
+        <h2><span class="icon">🔒</span> 4. Biometric Security &amp; Hardware Enclaves</h2>
+        <p>If you choose to enable the <strong>Biometric App Lock</strong>:</p>
+        <ul>
+          <li>Authentication is handled exclusively by your Android device's hardware security module (Keymaster / Keystore / Secure Enclave) via the official AndroidX <code>BiometricPrompt</code> API.</li>
+          <li>The App <strong>never</strong> captures, views, processes, or stores your fingerprint scan, facial geometry, or screen PIN. The operating system returns only a cryptographic pass/fail verification token.</li>
+          <li>The App automatically locks itself when you switch to the background (after a 2.5-second grace period), protecting your data on shared devices.</li>
+        </ul>
+      </div>
+
+      <!-- Section 5 -->
+      <div class="legal-card">
+        <h2><span class="icon">☁️</span> 5. Optional Google Drive Backup</h2>
+        <p>The App offers an optional feature to back up your encrypted database to your personal Google Drive account:</p>
+        <ul>
+          <li><strong>Initiated only by you:</strong> The backup upload happens exclusively when you tap "Backup to Google Drive" in Settings. There is no automatic background syncing.</li>
+          <li><strong>Scoped access:</strong> The App requests Google OAuth permission scoped to <code>drive.file</code> — which only allows the App to access files it creates. It cannot read your other Drive files.</li>
+          <li><strong>We have no access:</strong> The backup file is uploaded directly from your device to your own Google Drive account. Smartgem Technologies does not receive, store, or have access to your backup files or your Google account credentials.</li>
+          <li><strong>Your Drive, your rules:</strong> You can delete the backup file from your Drive at any time. Once stored in your Google Drive, the file is subject to <strong>Google's</strong> terms and privacy policy — see <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">https://policies.google.com/privacy</a>.</li>
+        </ul>
+      </div>
+
+      <!-- Section 6 -->
+      <div class="legal-card">
+        <h2><span class="icon">📢</span> 6. Advertising (Google AdMob)</h2>
+        <p>The App displays a non-intrusive banner advertisement at the bottom of the screen, provided by <strong>Google Mobile Ads (AdMob)</strong>, to support free access to the app.</p>
+        <ul>
+          <li><strong>Data processed by AdMob:</strong> Google AdMob may collect and process device identifiers (Android Advertising ID), IP addresses, coarse device model, operating system version, and interaction data for serving ads and fraud prevention.</li>
+          <li><strong>Privacy Policy:</strong> Governed by Google's Privacy Policy at <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">https://policies.google.com/privacy</a> and <a href="https://policies.google.com/technologies/ads" target="_blank" rel="noopener noreferrer">https://policies.google.com/technologies/ads</a>.</li>
+          <li><strong>Your Financial Data is Never Shared:</strong> Your transactions, budgets, income figures, and expense records stored locally are <strong>never</strong> shared with or accessed by Google AdMob or any third-party advertiser.</li>
+          <li><strong>Offline Mode:</strong> If you use the App without an internet connection, ad requests fail gracefully and the App remains 100% functional.</li>
+        </ul>
+      </div>
+
+      <!-- Section 7 -->
+      <div class="legal-card">
+        <h2><span class="icon">🔔</span> 7. Daily Reminder Notifications</h2>
+        <p>The App sends optional daily push notifications at <strong>8:00 AM</strong> and <strong>6:00 PM</strong> to remind you to log your daily transactions. These notifications:</p>
+        <ul>
+          <li>Are <strong>generated entirely on your device</strong> using Android's AlarmManager and do not involve any external servers.</li>
+          <li>Do not contain any personal financial data.</li>
+          <li>Can be disabled at any time via <strong>Device Settings → Apps → Smart Expense &amp; Income Tracker → Notifications</strong>.</li>
+          <li>Survive device reboots (the schedule is restored automatically by a BootReceiver).</li>
+        </ul>
+      </div>
+
+      <!-- Section 8 -->
+      <div class="legal-card">
+        <h2><span class="icon">📤</span> 8. Data Export &amp; Local Backups</h2>
+        <p>The App includes tools allowing you to:</p>
+        <ul>
+          <li>Export your transactions to a standard CSV spreadsheet (compatible with Excel and Google Sheets).</li>
+          <li>Generate a local encrypted JSON database snapshot saved to your device's Downloads folder.</li>
+          <li>Restore a previous JSON backup from your local file storage.</li>
+        </ul>
+        <p>Any file exported or shared is initiated solely by your explicit command. We have no access to exported files once they leave the App's sandbox.</p>
+      </div>
+
+      <!-- Section 9 -->
+      <div class="legal-card">
+        <h2><span class="icon">🔐</span> 9. Device Permissions</h2>
+        <table class="perms-table">
+          <thead>
+            <tr><th>Permission</th><th>Purpose</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>INTERNET</code></td>
+              <td>Required for loading Google AdMob banner advertisements and for uploading Drive backups when you initiate one.</td>
+            </tr>
+            <tr>
+              <td><code>ACCESS_NETWORK_STATE</code></td>
+              <td>Required by AdMob to verify network availability before attempting to load ads; also used before Drive backup uploads.</td>
+            </tr>
+            <tr>
+              <td><code>USE_BIOMETRIC</code> &amp; <code>USE_FINGERPRINT</code></td>
+              <td>Required to invoke the local hardware biometric unlock prompt. No biometric data is captured or stored by the App.</td>
+            </tr>
+            <tr>
+              <td><code>POST_NOTIFICATIONS</code> (Android 13+)</td>
+              <td>Required to display daily reminder notifications at 8 AM and 6 PM. Requested at first launch; can be denied without affecting core functionality.</td>
+            </tr>
+            <tr>
+              <td><code>SCHEDULE_EXACT_ALARM</code> / <code>USE_EXACT_ALARM</code></td>
+              <td>Required to schedule daily reminders at precise times using Android's AlarmManager API.</td>
+            </tr>
+            <tr>
+              <td><code>RECEIVE_BOOT_COMPLETED</code></td>
+              <td>Required to restore the daily reminder alarm schedule after the device reboots, ensuring you don't miss reminders.</td>
+            </tr>
+            <tr>
+              <td>Google Sign-In (Play Services OAuth)</td>
+              <td>To let you select a Google account for the optional Drive backup feature. Only <code>drive.file</code> scope is requested.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Section 10 -->
+      <div class="legal-card">
+        <h2><span class="icon">👶</span> 10. Children's Privacy</h2>
+        <p>The App is suitable for general audiences (Everyone / PEGI 3) and does not knowingly collect personally identifiable information from children under the age of 13 (or the applicable minimum age in your jurisdiction).</p>
+      </div>
+
+      <!-- Section 11 -->
+      <div class="legal-card">
+        <h2><span class="icon">✅</span> 11. Your Choices &amp; Rights</h2>
+        <ul>
+          <li><strong>Export your data:</strong> You can export a CSV or JSON backup at any time from Settings.</li>
+          <li><strong>Delete data:</strong> Deleting individual transactions removes them permanently. Uninstalling the App deletes all locally stored data (except any Google Drive backup file you uploaded yourself).</li>
+          <li><strong>Disable notifications:</strong> Manage notification permission via your device's app settings.</li>
+          <li><strong>Revoke Drive access:</strong> You can revoke the App's Google Drive OAuth access at any time via <a href="https://myaccount.google.com/permissions" target="_blank" rel="noopener noreferrer">https://myaccount.google.com/permissions</a>.</li>
+        </ul>
+        <p>Where applicable under data protection law, you have the right to access, correct, and delete the personal information stored in the App.</p>
+      </div>
+
+      <!-- Section 12 -->
+      <div class="legal-card">
+        <h2><span class="icon">🔄</span> 12. Changes to This Privacy Policy</h2>
+        <p>We may periodically update this Privacy Policy to reflect new features or legal requirements. Any updates will be reflected on this page with a revised "Last Updated" date. Your continued use of the App following changes indicates your acceptance of the updated policy.</p>
+      </div>
+
+      <!-- Section 13 -->
+      <div class="legal-card">
+        <h2><span class="icon">📬</span> 13. Contact Us</h2>
+        <p>For questions, feedback, or support regarding this Privacy Policy or how the App handles data:</p>
+        <div class="legal-contact">
+          <h3>Smartgem Technologies</h3>
+          <p>Email: <a href="mailto:smartgemtech@gmail.com">smartgemtech@gmail.com</a></p>
+          <p>Website: <a href="https://www.smartgemtech.in" target="_blank" rel="noopener noreferrer">https://www.smartgemtech.in</a></p>
+          <p>Salem District, Tamil Nadu, India</p>
+        </div>
+        <p style="margin-top:16px;font-size:0.88rem;color:var(--slate-400);"><em>This document is provided in English. The English version governs in all cases.</em></p>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer" id="footer">
+    <div class="container footer-container">
+      <div class="footer-brand">
+        <a href="/" class="logo footer-logo">
+          <img src="logo.png" alt="Smartgem Technologies" class="logo-img logo-img-footer" />
+        </a>
+        <p class="footer-tagline">Your trusted tech partner for networking, CCTV, software development, data outsourcing, image editing, and internet services in Salem District.</p>
+        <div class="footer-contact-links">
+          <a href="mailto:smartgemtech@gmail.com">smartgemtech@gmail.com</a>
+          <a href="tel:+918300474741">+91 83004 74741</a>
+        </div>
+      </div>
+      <div class="footer-links-group">
+        <h4 class="footer-heading">Services</h4>
+        <ul class="footer-links">
+          <li><a href="/#services">Data Entry &amp; BPO</a></li>
+          <li><a href="/#services">Image Editing</a></li>
+          <li><a href="/#tech-services">Network Support</a></li>
+          <li><a href="/#tech-services">CCTV Installation</a></li>
+          <li><a href="/#software">Software Dev</a></li>
+          <li><a href="/#internet">Internet Plans</a></li>
+        </ul>
+      </div>
+      <div class="footer-links-group">
+        <h4 class="footer-heading">Our Apps</h4>
+        <ul class="footer-links">
+          <li><a href="/privacy-policy.html">STech Cable Billing</a></li>
+          <li><a href="/smart-expense-privacy-policy.html">Smart Expense Tracker</a></li>
+        </ul>
+      </div>
+      <div class="footer-links-group">
+        <h4 class="footer-heading">Quick Links</h4>
+        <ul class="footer-links">
+          <li><a href="/">Home</a></li>
+          <li><a href="/#tech-services">Tech &amp; Network</a></li>
+          <li><a href="/#software">Software</a></li>
+          <li><a href="/#services">Outsourcing &amp; Services</a></li>
+          <li><a href="/#contact">Contact</a></li>
+          <li><a href="/privacy-policy.html">Privacy Policy (Cable)</a></li>
+          <li><a href="/terms-of-service.html">Terms of Service</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container footer-bottom-inner">
+        <p>&copy; 2025 Smartgem Technologies. All rights reserved.</p>
+        <p>Salem District, Tamil Nadu, India</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
