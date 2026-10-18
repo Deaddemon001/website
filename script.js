@@ -214,22 +214,35 @@ async function handleFormSubmit(e) {
   }, 5000);
 }
 
-// ===== SMOOTH ACTIVE NAV HIGHLIGHT =====
-const sections = document.querySelectorAll('section[id]');
+// ===== SMOOTH ACTIVE NAV HIGHLIGHT (MULTI-PAGE & IN-PAGE) =====
 const navItems = document.querySelectorAll('.nav-link');
-const navObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      navItems.forEach(link => {
-        link.classList.remove('active-nav');
-        if (link.getAttribute('href') === '#' + entry.target.id) {
-          link.classList.add('active-nav');
-        }
-      });
-    }
-  });
-}, { threshold: 0.4 });
-sections.forEach(s => navObserver.observe(s));
+const currentPath = window.location.pathname.replace(/^\/|\.html$/g, '') || 'index';
+
+navItems.forEach(link => {
+  const href = link.getAttribute('href') || '';
+  const cleanHref = href.replace(/^\/|\.html$/g, '').split('#')[0] || 'index';
+  if (cleanHref === currentPath && !href.startsWith('#')) {
+    link.classList.add('active', 'active-nav');
+  }
+});
+
+const sections = document.querySelectorAll('section[id]');
+if (sections.length > 0) {
+  const navObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        navItems.forEach(link => {
+          const href = link.getAttribute('href') || '';
+          if (href === '#' + entry.target.id || href.endsWith('/#' + entry.target.id)) {
+            navItems.forEach(l => l.classList.remove('active-nav'));
+            link.classList.add('active-nav');
+          }
+        });
+      }
+    });
+  }, { threshold: 0.35 });
+  sections.forEach(s => navObserver.observe(s));
+}
 
 // Add active nav style
 const style = document.createElement('style');
